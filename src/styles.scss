@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+$gray-100: rgb(240, 240, 240);
+
+body {
+  font-family: var(--font-family);
+  background: $gray-100;
+  max-width: 100%;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}

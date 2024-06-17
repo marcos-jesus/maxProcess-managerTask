@@ -1,0 +1,14 @@
+
+$white: #fff;
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.menu-header {
+  @include flex;
+  background-color: $white;
+  height: 5rem;
+}

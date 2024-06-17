@@ -1,0 +1,22 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+}
+
+.home-element{
+  padding: 3rem;
+}
+
+.home-container {
+  margin: 0 auto;
+  width: 82%;
+  text-align: center;
+}
+
+.home-plus {
+  float:right; 
+  clear: both;
+  cursor: pointer;
+  transition: 0.7s ease;
+  
+}

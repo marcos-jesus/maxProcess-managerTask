@@ -1,0 +1,37 @@
+<div class="home-element">
+  <p-card>
+    <div class="home-container">
+      <h3>Cadastro</h3>
+      <div class="grid">
+        <div class="col-12">
+          <div class="grid">
+            <div class="col-12">
+              <label>Titulo</label>
+              <div>
+                <input type="text" pInputText pKeyFilter="alpha" placeholder="Digite seu titulo..." class="col-12">
+              </div>
+            </div>
+  
+            <div class="col-12">
+              <label>Descricao</label>
+              <div>
+                <input type="text" pInputText pKeyFilter="alpha" placeholder="Digite sua descricao..." class="col-12">
+              </div>
+            </div>
+            <div class="col-12">
+              <label>Status</label>
+              <div class="col-12">
+                <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes" placeholder="Selecione um status"></p-treeSelect>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     <div class="flex justify-content-end">
+      <button pButton class="p-button-md mr-2">Limpar</button>
+      <button pButton class="p-button-success">Salvar</button>
+     </div>
+    </div>
+  </p-card>
+</div>

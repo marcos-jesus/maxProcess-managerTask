@@ -1,0 +1,35 @@
+<div class="panel">
+  <p-panel class="panel-content" *ngFor="let task of tasks$ | async">
+    <ng-template pTemplate="header">
+      <div class="header-panel">
+        <span>{{ task.title}}</span>
+        <p-tag severity="danger" *ngIf="task.status.type == 1">
+          {{ task.status.title}}
+        </p-tag>
+        <p-tag *ngIf="task.status.type == 2">
+          {{task.status.title}}
+        </p-tag>
+        <p-tag severity="success" *ngIf="task.status.type == 3">
+          {{task.status.title}}
+        </p-tag>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="body">
+      <div class="body-panel-text">
+        {{task.description}}
+      </div>
+      <div class="body-panel-icons">
+        <i class="fa-solid fa-pencil"
+          (click)="onUpdate(task)"
+        ></i>
+        <i 
+          class="fa-solid fa-trash"
+          style="color: #DC3545;"
+          (click)="onDelete(task.id)"  
+        ></i>
+      </div>
+    </ng-template>
+  </p-panel>
+ 
+</div>

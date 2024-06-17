@@ -1,0 +1,33 @@
+
+@mixin flex {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.panel {
+  @include flex;
+}
+
+.header-panel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-content {
+  width: 40%;
+}
+
+.body-panel-text {
+  
+}
+.body-panel-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
