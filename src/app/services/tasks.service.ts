@@ -7,10 +7,14 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TasksService {
-  
+
   constructor(private _http : HttpClient) { }
 
   getTasks(): Observable<ITasks[]> {
     return this._http.get<ITasks[]>(`${environment.api}/task`)
+  }
+
+  getTask(id: string): Observable<ITasks> {
+    return this._http.get<ITasks>(`${environment.api}/task/${id}`)
   }
 }

@@ -5,7 +5,7 @@ export interface ITasks {
   status: Status
 }
 
-interface Status {
+export interface Status {
   type: number,
   title: string
 }

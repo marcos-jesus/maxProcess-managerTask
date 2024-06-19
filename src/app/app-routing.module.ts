@@ -6,8 +6,8 @@ import { UpdateComponent } from './pages/update/update.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'cadastro', component: CadastroComponent},
-  {path: 'atualizar', component: UpdateComponent}
+  {path: 'maxprocess', component: CadastroComponent},
+  {path: 'maxprocess/:id', component: UpdateComponent}
 ];
 
 @NgModule({

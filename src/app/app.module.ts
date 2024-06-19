@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { InputComponent } from './components/input/input.component';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { UpdateComponent } from './pages/update/update.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
 
 
 @NgModule({
@@ -36,10 +38,13 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     InputComponent,
     UpdateComponent,
+    LoadingOverlayComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     ButtonModule,
