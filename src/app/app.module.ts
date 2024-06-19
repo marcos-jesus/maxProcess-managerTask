@@ -15,7 +15,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import { TagModule } from 'primeng/tag';
 
 import { MenuComponent } from './components/menu/menu.component';
-import { TableComponent } from './components/panel/panel.component';
+import { PanelComponent } from './components/panel/panel.component';
 import { FilterComponent } from './components/filter/filter.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
@@ -24,15 +24,18 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import { InputComponent } from './components/input/input.component';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { UpdateComponent } from './pages/update/update.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component';
+
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './services/loader.interceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    TableComponent,
+    PanelComponent,
     FilterComponent,
     CadastroComponent,
     HomeComponent,
@@ -58,7 +61,10 @@ import { LoadingOverlayComponent } from './components/loading-overlay/loading-ov
     KeyFilterModule,
     TreeSelectModule,
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

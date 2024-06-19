@@ -1,5 +1,7 @@
 <div class="panel">
-  <app-loading-overlay [isLoading]="isLoading"></app-loading-overlay>
+  <div *ngIf="loading$ | async">
+    <app-loading-overlay [isLoading]="loading$"></app-loading-overlay>
+  </div>
   <p-panel class="panel-content" *ngFor="let task of tasks$ | async">
     <ng-template pTemplate="header">
       <div class="header-panel">

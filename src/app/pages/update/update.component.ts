@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, switchMap } from 'rxjs';
 import { ITasks, Status } from 'src/app/interfaces/itasks';
@@ -11,12 +11,6 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent {
-
-  nodes: Status[] = [
-    {type: 1, title: 'Pendente'},
-    {type: 2, title: 'Em andamento'},
-    {type:3, title: 'Concluída'}
-  ]
 
   selectedNodes = new FormControl()
 
@@ -42,7 +36,7 @@ export class UpdateComponent {
         return of(task);
       })
     ).subscribe((task) => {
-      this.form.patchValue({
+      this.form.setValue({
         title: task.title,
         description: task.description,
         status: task.status.title
@@ -56,9 +50,6 @@ export class UpdateComponent {
   }
 
   updateTask() {
-    this.form.setValue({
-      
-    })
     console.log('form:', this.form)
   }
 

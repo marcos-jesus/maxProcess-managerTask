@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef,Component } from '@angular/core';
 import { Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { ITasks } from 'src/app/interfaces/itasks';
+import { LoaderService } from 'src/app/services/loader.service';
 import { TasksService } from 'src/app/services/tasks.service';
 
 @Component({
@@ -10,18 +11,26 @@ import { TasksService } from 'src/app/services/tasks.service';
   styleUrls: ['./panel.component.scss']
 })
 
-export class TableComponent implements OnInit {
-  isLoading: boolean = false
+export class PanelComponent {
+  loading$ = this.loaderService.loading$;
   tasks$ = new Observable<ITasks[]>()
-  constructor(private TaskService: TasksService, private router: Router) { }
+  constructor(
+    private TaskService: TasksService, 
+    private router: Router, 
+    private loaderService: LoaderService,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
     this.getTask()
   }
 
-  getTask() {
-    this.isLoading = true
+  getTask() { 
+
+    this.loaderService.showLoading();
     this.tasks$ = this.TaskService.getTasks()
+
+    console.log("meu loader", this.loading$)
   }
 
   onUpdate(task: ITasks) {

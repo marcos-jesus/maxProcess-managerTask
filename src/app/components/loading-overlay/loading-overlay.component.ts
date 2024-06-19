@@ -1,15 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-loading-overlay',
   templateUrl: './loading-overlay.component.html',
   styleUrls: ['./loading-overlay.component.scss']
 })
-export class LoadingOverlayComponent implements OnInit {
-  @Input() isLoading: boolean = false;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class LoadingOverlayComponent {
+  @Input()  isLoading!: Observable<any>;
 }
