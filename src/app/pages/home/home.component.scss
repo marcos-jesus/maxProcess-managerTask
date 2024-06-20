@@ -10,13 +10,20 @@
 .home-container {
   margin: 0 auto;
   width: 82%;
-  text-align: center;
 }
 
+.home-glass {
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  float:right;
+  cursor: pointer;
+  transition: 0.7s ease;
+}
 .home-plus {
   float:right; 
-  clear: both;
   cursor: pointer;
   transition: 0.7s ease;
   
 }
+
+

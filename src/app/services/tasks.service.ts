@@ -24,9 +24,14 @@ export class TasksService {
 
   updateTask(id: number, data: ITasks): void{}
 
+  deleteTask(id: string): Observable<ITasks> {
+    return this._http.delete<ITasks>(`${environment.api}/task/${id}`)
+  }
+
   getTasksPaginated(page: number, limit: number): Observable<ITasks[]> {
     return this._http.get<ITasks[]>(`${environment.api}/task`, {
       params: { page,limit }
     });
   }
+
 }

@@ -1,13 +1,16 @@
 <div class="home-element">
   <p-card>
     <div class="home-container">
-      <app-filter></app-filter>
       <button pButton class="home-plus p-button-sm" routerLink="maxprocess">
         <i class="fa-regular fa-plus home-plus-icon"></i>
       </button>
+
+      <div class="home-glass">
+        <app-filter></app-filter>
+      </div>
     </div>
 
     <app-panel [tasks]="tasks"></app-panel>
-    <p-paginator (onPageChange)="onPageChange($event)" [rows]="4" [totalRecords]="10"></p-paginator>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="4" [totalRecords]="totalItens"></p-paginator>
   </p-card>
 </div>

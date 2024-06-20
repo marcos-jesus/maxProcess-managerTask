@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ITasks } from 'src/app/interfaces/itasks';
 import { TasksService } from 'src/app/services/tasks.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +11,11 @@ export class HomeComponent implements OnInit {
 
   tasks!: ITasks[];
   rows = 4;
-  constructor(private tasksService: TasksService) { }
+  totalItens!: number;
+
+  constructor(private tasksService: TasksService) { 
+    this.tasksService.getTasks().subscribe(task => this.totalItens = task.length)
+  }
 
   ngOnInit(): void {
     this.loadTasks(1, this.rows);
