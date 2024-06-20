@@ -1,4 +1,4 @@
 export interface ICadastro {
-  type: number,
-  title: string,
+  type: string,
+  label: string,
 }

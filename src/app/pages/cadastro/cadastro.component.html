@@ -1,36 +1,59 @@
 <div class="home-element">
+  <div *ngIf="loading$ | async">
+    <app-loading-overlay [isLoading]="loading$"></app-loading-overlay>
+  </div>
   <p-card>
     <div class="home-container">
       <h3>Cadastro</h3>
       <div class="grid">
         <div class="col-12">
           <div class="grid">
-            <div class="col-12">
-              <label>Titulo</label>
-              <div>
-                <input type="text" pInputText pKeyFilter="alpha" placeholder="Digite seu titulo..." class="col-12">
+            <div [formGroup]="form" class="col-12">
+              <div class="col-12">
+                <label>Titulo</label>
+                <div>
+                  <input 
+                    formControlName="title"
+                    type="text" 
+                    pInputText
+                    placeholder="Digite seu titulo..." 
+                    class="col-12">
+                </div>
+              </div>
+    
+              <div class="col-12">
+                <label>Descricao</label>
+                <div>
+                  <input 
+                    formControlName="description"
+                    type="text" 
+                    pInputText 
+                    placeholder="Digite sua descricao..." 
+                    class="col-12">
+                </div>
               </div>
             </div>
-  
+            
             <div class="col-12">
-              <label>Descricao</label>
-              <div>
-                <input type="text" pInputText pKeyFilter="alpha" placeholder="Digite sua descricao..." class="col-12">
-              </div>
-            </div>
-            <div class="col-12">
-              <label>Status</label>
+              <label class="ml-2">Status</label>
               <div class="col-12">
                 <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes" placeholder="Selecione um status"></p-treeSelect>
               </div>
             </div>
           </div>
+          
         </div>
       </div>
 
      <div class="flex justify-content-end">
-      <button pButton class="p-button-md mr-2">Limpar</button>
-      <button pButton class="p-button-success">Salvar</button>
+      <button (click)="handleClear()" pButton class="p-button-md mr-2">Limpar</button>
+      <button
+        (click)="handleSave()"
+        pButton class="p-button-success"
+        [disabled]="!isFormValid"
+      >
+        Salvar
+      </button>
      </div>
     </div>
   </p-card>

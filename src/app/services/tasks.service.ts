@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TasksService {
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _http : HttpClient) {}
 
   getTasks(): Observable<ITasks[]> {
     return this._http.get<ITasks[]>(`${environment.api}/task`)
@@ -16,5 +16,17 @@ export class TasksService {
 
   getTask(id: string): Observable<ITasks> {
     return this._http.get<ITasks>(`${environment.api}/task/${id}`)
+  }
+
+  PostTask(task: ITasks): Observable<ITasks> {
+    return this._http.post<ITasks>(`${environment.api}/task`, task)
+  }
+
+  updateTask(id: number, data: ITasks): void{}
+
+  getTasksPaginated(page: number, limit: number): Observable<ITasks[]> {
+    return this._http.get<ITasks[]>(`${environment.api}/task`, {
+      params: { page,limit }
+    });
   }
 }

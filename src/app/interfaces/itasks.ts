@@ -1,11 +1,11 @@
 export interface ITasks {
-  id: string,
-  title: string,
-  description: string,
+  id?: string,
+  title: string | null,
+  description: string | null,
   status: Status
 }
 
 export interface Status {
-  type: number,
-  title: string
+  type: number | null,
+  label: string | null
 }

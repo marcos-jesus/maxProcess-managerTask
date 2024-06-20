@@ -21,7 +21,6 @@ import {InputTextModule} from 'primeng/inputtext';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { HomeComponent } from './pages/home/home.component';
 import {KeyFilterModule} from 'primeng/keyfilter';
-import { InputComponent } from './components/input/input.component';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { UpdateComponent } from './pages/update/update.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -39,7 +38,6 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     FilterComponent,
     CadastroComponent,
     HomeComponent,
-    InputComponent,
     UpdateComponent,
     LoadingOverlayComponent,
   ],

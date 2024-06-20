@@ -2,18 +2,18 @@
   <div *ngIf="loading$ | async">
     <app-loading-overlay [isLoading]="loading$"></app-loading-overlay>
   </div>
-  <p-panel class="panel-content" *ngFor="let task of tasks$ | async">
+  <p-panel class="panel-content" *ngFor="let task of tasks">
     <ng-template pTemplate="header">
       <div class="header-panel">
         <span>{{ task.title}}</span>
         <p-tag severity="danger" *ngIf="task.status.type == 1">
-          {{ task.status.title}}
+          {{ task.status.label}}
         </p-tag>
         <p-tag *ngIf="task.status.type == 2">
-          {{task.status.title}}
+          {{task.status.label}}
         </p-tag>
         <p-tag severity="success" *ngIf="task.status.type == 3">
-          {{task.status.title}}
+          {{task.status.label}}
         </p-tag>
       </div>
     </ng-template>
@@ -29,7 +29,6 @@
         <i 
           class="fa-solid fa-trash"
           style="color: #DC3545;"
-          (click)="onDelete(task.id)"  
         ></i>
       </div>
     </ng-template>

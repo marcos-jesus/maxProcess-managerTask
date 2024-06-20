@@ -7,7 +7,7 @@
       </button>
     </div>
 
-    <app-panel></app-panel>
-    <p-paginator [rows]="6" [totalRecords]="100"></p-paginator>
+    <app-panel [tasks]="tasks"></app-panel>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="4" [totalRecords]="10"></p-paginator>
   </p-card>
 </div>
