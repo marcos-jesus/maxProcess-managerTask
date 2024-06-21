@@ -13,6 +13,8 @@ import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import {PaginatorModule} from 'primeng/paginator';
 import { TagModule } from 'primeng/tag';
+import { DialogModule } from 'primeng/dialog';
+import { CheckboxModule } from 'primeng/checkbox';
 
 import { MenuComponent } from './components/menu/menu.component';
 import { PanelComponent } from './components/panel/panel.component';
@@ -58,6 +60,8 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     InputTextModule,
     KeyFilterModule,
     TreeSelectModule,
+    DialogModule,
+    CheckboxModule
   ],
   providers: [
     LoaderService,

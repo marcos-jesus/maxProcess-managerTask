@@ -10,7 +10,7 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class HomeComponent implements OnInit {
 
   tasks!: ITasks[];
-  rows = 4;
+  rows = 6;
   totalItens!: number;
 
   constructor(private tasksService: TasksService) { 
