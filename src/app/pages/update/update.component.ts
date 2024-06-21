@@ -52,6 +52,8 @@ export class UpdateComponent {
         description: task.description,
       })
 
+      this.selectStatus = task.status
+
     })
   }
 
@@ -63,10 +65,7 @@ export class UpdateComponent {
 
   updateTask() {
     console.log('form:', this.form.value)
-
     const id = this.route.snapshot.paramMap.get('id')
-
-    console.log("id", id)
   }
 
 }
