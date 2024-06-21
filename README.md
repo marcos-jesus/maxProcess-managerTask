@@ -1,8 +1,8 @@
 # Frontend Docs (LEIA)
 **This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.**
 
-O que estou usando:
-Linguagem: Javascript
+O que estou usando:<br>
+Linguagem: Javascript<br>
 Framework: Angular 14.0.0 / CLI 14.0.6 <br>
 RxJS: 7.50<br>
 Typescript: 4.7.2<br>
