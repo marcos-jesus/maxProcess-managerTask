@@ -6,13 +6,13 @@
     <ng-template pTemplate="header">
       <div class="header-panel">
         <span>{{ task.title}}</span>
-        <p-tag severity="danger" *ngIf="task.status.type == 1">
+        <p-tag severity="danger" *ngIf="task.status.type == '1'">
           {{ task.status.label}}
         </p-tag>
-        <p-tag *ngIf="task.status.type == 2">
+        <p-tag *ngIf="task.status.type == '2'">
           {{task.status.label}}
         </p-tag>
-        <p-tag severity="success" *ngIf="task.status.type == 3">
+        <p-tag severity="success" *ngIf="task.status.type == '3'">
           {{task.status.label}}
         </p-tag>
       </div>

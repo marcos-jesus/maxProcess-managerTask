@@ -39,7 +39,6 @@ export class UpdateComponent {
     private _loaderService: LoaderService,
 
   ) {
-
     this.getTask()
 
     this.tasks$.pipe(
@@ -52,7 +51,7 @@ export class UpdateComponent {
         description: task.description,
       })
 
-      this.selectStatus = task.status
+      this.selectStatus = task.status as TreeNode<Status>
 
     })
   }

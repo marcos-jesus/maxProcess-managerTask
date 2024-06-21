@@ -6,6 +6,6 @@ export interface ITasks {
 }
 
 export interface Status {
-  type: number | null,
-  label: string | null
+  type: string | null,
+  label: string
 }
