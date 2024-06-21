@@ -32,3 +32,6 @@ Gerada pipeline com steps de deploy (Instalação de libs, build, e afins... que
 Criado uma esteira de deploy automatizada CI/CD no S3 da AWS ao realizar o merge e push para branch master.
 ## Em Desenvolvimento...
 http://maxprocessteste.s3-website.us-east-2.amazonaws.com/
+
+
+<img src="./src/assets/aws.png"/>
