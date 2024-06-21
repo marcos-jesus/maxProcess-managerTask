@@ -9,7 +9,6 @@ export class LoaderService {
 
   loading$ = this.loadingSubject.asObservable()
 
-
   showLoading() {
     this.loadingSubject.next(true)
   }
