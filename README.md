@@ -29,6 +29,6 @@ Criação e configuração realizada para criação de Bucket na AWS S3.
 Configuração realizada no Github Action com as credenciais geradas na AWS.
 Gerada pipeline com steps de deploy (Instalação de libs, build, e afins... que não foram implementado como step de teste unitário etc...) e configurações das secrets e variables do Github Action.
 
-Criado uma esteira de deploy automatizada CI/CD no S3 da AWS ao realizar o push para branch master, de desenvolvendo na branch de desenvolvimento e realizando o merge e push para master (Produção).
-
+Criado uma esteira de deploy automatizada CI/CD no S3 da AWS ao realizar o merge e push para branch master.
 ## Em Desenvolvimento...
+http://maxprocessteste.s3-website.us-east-2.amazonaws.com/
