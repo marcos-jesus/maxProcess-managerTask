@@ -30,9 +30,15 @@ export class TasksService {
     return this._http.delete<ITasks>(`${environment.api}/task/${id}`)
   }
 
-  getTasksPaginated(page: number, limit: number): Observable<ITasks[]> {
+  getTasksPaginated(order: string, page: number, limit: number): Observable<ITasks[]> {
     return this._http.get<ITasks[]>(`${environment.api}/task`, {
-      params: { page,limit }
+      params: { order,page,limit }
+    })
+  }
+
+  getTasksFiltered(page: number, limit: number, filter: string[]): Observable<ITasks[]> {
+    return this._http.get<ITasks[]>(`${environment.api}/task`, {
+      params: { page,limit,filter }
     })
   }
 

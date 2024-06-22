@@ -6,11 +6,11 @@
       </button>
 
       <div class="home-glass">
-        <app-filter></app-filter>
+        <app-filter (eventStatusChildren)="eventStatus($event)"></app-filter>
       </div>
     </div>
 
-    <app-panel [tasks]="tasks"></app-panel>
+    <app-panel [tasks]="filteredTasks ? filteredTasks : tasks"></app-panel>
     <p-paginator (onPageChange)="onPageChange($event)" [rows]="6" [totalRecords]="totalItens"></p-paginator>
   </p-card>
 </div>

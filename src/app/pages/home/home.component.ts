@@ -9,26 +9,45 @@ import { TasksService } from 'src/app/services/tasks.service';
 })
 export class HomeComponent implements OnInit {
 
-  tasks!: ITasks[];
-  rows = 6;
-  totalItens!: number;
+  tasks!: ITasks[]
+  filteredTasks!: ITasks[]
+  rows = 6
+  totalItens!: number
+
+  eventStatusFather: string[] = []
 
   constructor(private tasksService: TasksService) { 
     this.tasksService.getTasks().subscribe(task => this.totalItens = task.length)
   }
 
   ngOnInit(): void {
-    this.loadTasks(1, this.rows);
+    this.loadTasks("desc",1, this.rows);
   }
 
   onPageChange(event: any) {
     const currentPage = event.page + 1;
     const rows = event.rows;
-    this.loadTasks(currentPage, rows);
+    this.loadTasks("desc",currentPage, rows);
   }
 
-  loadTasks(page: number, limit: number) {
-    this.tasksService.getTasksPaginated(page, limit).subscribe(task => this.tasks = task );
+  loadTasks(order: string, page: number, limit: number) {
+    this.tasksService.getTasksPaginated(order, page, limit).subscribe(task => this.tasks = task )
+    this.applyFilter()
+  }
+
+  applyFilter() {
+    if (this.eventStatusFather && this.eventStatusFather.length > 0) {
+      this.filteredTasks = this.tasks.filter(task => 
+        this.eventStatusFather.includes(task.status.type ?? '')
+      );
+    } else {
+      this.filteredTasks = this.tasks;
+    }
+  }
+
+  eventStatus(event: string[]) {
+    this.eventStatusFather = event
+    this.applyFilter()
   }
  
 }

@@ -15,6 +15,7 @@ export class PanelComponent implements OnDestroy {
   @Input() tasks: ITasks[] = []
   
   loading$ = this.loaderService.loading$
+  
   private destroy$ = new Subject<void>()
 
   constructor(
