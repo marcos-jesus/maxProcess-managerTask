@@ -9,3 +9,5 @@ export interface Status {
   type: string | null,
   label: string
 }
+
+export type ITasksWithoutId = Omit<ITasks, "id">

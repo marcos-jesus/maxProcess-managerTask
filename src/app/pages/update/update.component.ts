@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { TreeNode } from 'primeng/api';
-import { Observable, of, switchMap } from 'rxjs';
-import { ICadastro } from 'src/app/interfaces/icadastro';
-import { ITasks, Status } from 'src/app/interfaces/itasks';
-import { LoaderService } from 'src/app/services/loader.service';
-import { TasksService } from 'src/app/services/tasks.service';
+import { Component } from '@angular/core'
+import { FormBuilder, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
+import { TreeNode } from 'primeng/api'
+import { Observable, of, switchMap, take } from 'rxjs'
+import { ICadastro } from 'src/app/interfaces/ICadastro'
+import { ITasks, Status } from 'src/app/interfaces/ITasks'
+import { LoaderService } from 'src/app/services/loader.service'
+import { TasksService } from 'src/app/services/tasks.service'
 
 @Component({
   selector: 'app-update',
@@ -34,25 +34,29 @@ export class UpdateComponent {
   
   constructor(
     private _ServiceTask: TasksService, 
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
+    private router: Router,
     private formBuilder : FormBuilder,
     private _loaderService: LoaderService,
 
   ) {
+
     this.getTask()
 
     this.tasks$.pipe(
       switchMap((task) => {
-        return of(task);
-      })
+        return of(task)
+      }),
+      take(1)
     ).subscribe((task) => {
+
       this.form.patchValue({
         title: task.title,
         description: task.description,
       })
 
       this.selectStatus = task.status as TreeNode<Status>
-
+      this._loaderService.hideLoading()
     })
   }
 
@@ -63,8 +67,19 @@ export class UpdateComponent {
   }
 
   updateTask() {
-    console.log('form:', this.form.value)
+    this._loaderService.showLoading()
     const id = this.route.snapshot.paramMap.get('id')
+    const update = {
+      id: id,
+      title: this.form.value.title,
+      description: this.form.value.description,
+      status: this.selectStatus
+    }
+
+    this._ServiceTask.updateTask(update as ITasks).subscribe((task) => {
+      this._loaderService.hideLoading()
+      this.router.navigate([""])
+    })
   }
 
 }
