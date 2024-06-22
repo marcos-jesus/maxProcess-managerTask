@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Router} from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
-import { ITasks } from 'src/app/interfaces/ITasks';
+import { ITasks } from 'src/app/interfaces/itasks';
 import { LoaderService } from 'src/app/services/loader.service';
 import { TasksService } from 'src/app/services/tasks.service';
 

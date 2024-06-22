@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TreeNode } from 'primeng/api';
-import { ICadastro } from 'src/app/interfaces/ICadastro';
-import { ITasks, Status } from 'src/app/interfaces/ITasks';
+import { ICadastro } from 'src/app/interfaces/icadastro';
+import { ITasks, Status } from 'src/app/interfaces/itasks';
 import { LoaderService } from 'src/app/services/loader.service';
 import { TasksService } from 'src/app/services/tasks.service';
 
