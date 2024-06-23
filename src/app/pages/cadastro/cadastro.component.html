@@ -12,25 +12,41 @@
               <div class="col-12">
                 <label>Titulo</label>
                 <div>
+                  <span 
+                  *ngIf="!form.controls.title.pristine && form.controls.title.status === 'INVALID'"
+                  class="maxprocess__input_validate"
+                >
+                  Necessário o prenchimento
+                </span>
                   <input
                     formControlName="title"
                     type="text"
                     pInputText
                     placeholder="Digite seu titulo..."
                     class="col-12"
+                    maxlength="80"
+                    required
                   />
                 </div>
               </div>
 
               <div class="col-12">
-                <label>Descricao</label>
+                <label>Descricão</label>
                 <div>
+                  <span 
+                  *ngIf="!form.controls.description.pristine && form.controls.description.status === 'INVALID'"
+                  class="maxprocess__input_validate"
+                >
+                  Necessário o prenchimento
+                </span>
                   <input
                     formControlName="description"
                     type="text"
                     pInputText
-                    placeholder="Digite sua descricao..."
+                    placeholder="Digite sua descricão..."
                     class="col-12"
+                    maxlength="300"
+                    required
                   />
                 </div>
               </div>

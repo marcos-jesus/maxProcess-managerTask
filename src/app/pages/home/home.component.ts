@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
     this._ServiceTask
       .getTasksPaginated(order, page, limit)
       .subscribe((task) => (this.tasks = task))
-    this.applyFilter()
   }
 
   applyFilter() {

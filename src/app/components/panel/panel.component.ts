@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
-import { Subject, takeUntil } from 'rxjs'
+import { Subject, Subscription, takeUntil } from 'rxjs'
 import { ITasks } from 'src/app/interfaces/itasks'
 import { LoaderService } from 'src/app/services/loader.service'
 import { TasksService } from 'src/app/services/tasks.service'
@@ -11,11 +11,11 @@ import { TasksService } from 'src/app/services/tasks.service'
   styleUrls: ['./panel.component.scss'],
 })
 export class PanelComponent implements OnDestroy {
-  @Input() tasks: ITasks[] = []
-
+  private subscription: Subscription = new Subscription()
+  
   loading$ = this._loaderService.loading$
 
-  private destroy$ = new Subject<void>()
+  @Input() tasks: ITasks[] = []
 
   constructor(
     private router: Router,
@@ -30,17 +30,17 @@ export class PanelComponent implements OnDestroy {
   onDelete(id: string) {
     this._loaderService.showLoading()
 
-    this._ServiceTask
-      .deleteTask(id)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((task) => {
-        this.tasks = this.tasks.filter((task) => task.id != id)
+    this.subscription.add(
+      this._ServiceTask.deleteTask(id)
+      .subscribe((_) => {
         this._loaderService.hideLoading()
+        this._ServiceTask.getTasks().subscribe(task => this.tasks = task)
       })
+    )
+    
   }
 
   ngOnDestroy() {
-    this.destroy$.next()
-    this.destroy$.complete()
+    this.subscription.unsubscribe()
   }
 }
