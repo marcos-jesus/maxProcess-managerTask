@@ -11,6 +11,10 @@
     </div>
 
     <app-panel [tasks]="filteredTasks ? filteredTasks : tasks"></app-panel>
-    <p-paginator (onPageChange)="onPageChange($event)" [rows]="6" [totalRecords]="totalItens"></p-paginator>
+    <p-paginator
+      (onPageChange)="onPageChange($event)"
+      [rows]="6"
+      [totalRecords]="totalItens"
+    ></p-paginator>
   </p-card>
 </div>

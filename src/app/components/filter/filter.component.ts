@@ -1,23 +1,20 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { TasksService } from 'src/app/services/tasks.service';
+import { Component, Output, EventEmitter } from '@angular/core'
 
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
 })
-export class FilterComponent implements OnInit {
-  visible!: boolean;
+export class FilterComponent {
+  visible!: boolean
 
-  position!: string;
+  position!: string
   checked: boolean = false
   selectedStatus: string[] = []
 
   @Output() eventStatusChildren = new EventEmitter<string[]>()
 
-  constructor(private tasksService: TasksService) { }
-
-  ngOnInit(): void {}
+  constructor() {}
 
   showDialog(position: string) {
     this.position = position
@@ -25,7 +22,6 @@ export class FilterComponent implements OnInit {
   }
 
   sendSelectStatus() {
-    console.log("Mudou ?")
     this.eventStatusChildren.emit(this.selectedStatus)
   }
 }

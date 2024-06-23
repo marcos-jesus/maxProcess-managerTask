@@ -4,47 +4,49 @@
   </div>
   <div class="grid">
     <p-card class="col-12">
-        <h3>Atualizar</h3>
-          <div [formGroup]="form">
-            <label>Titulo</label>
-            <div class="mt-3 mb-3">
-              <input
-                formControlName="title"
-                name="title"
-                type="text" 
-                pInputText  
-                placeholder="Digite seu titulo..."
-                class="col-12"
-              >
-            </div>
-            <label>Descricao</label>
-            <div class="mt-3 mb-3">
-              <input 
-                formControlName="description"
-                name="description"
-                type="text"
-                pInputText 
-                placeholder="Digite sua descricao..."
-                class="col-12" 
-              >
-            </div>
-          </div>
-          <label> Status</label>
-          <div class="mt-3 mb-3">
-            <p-treeSelect
-              [(ngModel)]="selectStatus"
-              [ngModelOptions]="{ standalone: true }"
-              name="status"
-              class="md:w-20rem w-full"
-              containerStyleClass="w-full"
-              [options]="nodes"
-              optionLabel="label"
-              placeholder="Selecione um status"
-            ></p-treeSelect>
-          </div>
-          
+      <h3>Atualizar</h3>
+      <div [formGroup]="form">
+        <label>Titulo</label>
+        <div class="mt-3 mb-3">
+          <input
+            formControlName="title"
+            name="title"
+            type="text"
+            pInputText
+            placeholder="Digite seu titulo..."
+            class="col-12"
+          />
+        </div>
+        <label>Descricao</label>
+        <div class="mt-3 mb-3">
+          <input
+            formControlName="description"
+            name="description"
+            type="text"
+            pInputText
+            placeholder="Digite sua descricao..."
+            class="col-12"
+          />
+        </div>
+      </div>
+      <label> Status</label>
+      <div class="mt-3 mb-3">
+        <p-treeSelect
+          [(ngModel)]="selectStatus"
+          [ngModelOptions]="{ standalone: true }"
+          name="status"
+          class="md:w-20rem w-full"
+          containerStyleClass="w-full"
+          [options]="nodes"
+          optionLabel="label"
+          placeholder="Selecione um status"
+        ></p-treeSelect>
+      </div>
+
       <div class="flex justify-content-end mt-4">
-        <button (click)="updateTask()" pButton class="p-button-success">Salvar</button>
+        <button (click)="updateTask()" pButton class="p-button-success">
+          Salvar
+        </button>
       </div>
     </p-card>
   </div>

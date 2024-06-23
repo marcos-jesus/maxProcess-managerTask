@@ -12,48 +12,56 @@
               <div class="col-12">
                 <label>Titulo</label>
                 <div>
-                  <input 
+                  <input
                     formControlName="title"
-                    type="text" 
+                    type="text"
                     pInputText
-                    placeholder="Digite seu titulo..." 
-                    class="col-12">
+                    placeholder="Digite seu titulo..."
+                    class="col-12"
+                  />
                 </div>
               </div>
-    
+
               <div class="col-12">
                 <label>Descricao</label>
                 <div>
-                  <input 
+                  <input
                     formControlName="description"
-                    type="text" 
-                    pInputText 
-                    placeholder="Digite sua descricao..." 
-                    class="col-12">
+                    type="text"
+                    pInputText
+                    placeholder="Digite sua descricao..."
+                    class="col-12"
+                  />
                 </div>
               </div>
             </div>
-            
+
             <div class="col-12">
               <label class="ml-2">Status</label>
               <div class="col-12">
-                <p-treeSelect class="md:w-20rem w-full" containerStyleClass="w-full" [(ngModel)]="selectedNodes" [options]="nodes" placeholder="Selecione um status"></p-treeSelect>
+                <p-treeSelect
+                  class="md:w-20rem w-full"
+                  containerStyleClass="w-full"
+                  [(ngModel)]="selectedNodes"
+                  [options]="nodes"
+                  placeholder="Selecione um status"
+                ></p-treeSelect>
               </div>
             </div>
           </div>
-          
         </div>
       </div>
 
-     <div class="flex justify-content-end">
-      <button
-        (click)="handleSave()"
-        pButton class="p-button-success"
-        [disabled]="!isFormValid"
-      >
-        Salvar
-      </button>
-     </div>
+      <div class="flex justify-content-end">
+        <button
+          (click)="handleSave()"
+          pButton
+          class="p-button-success"
+          [disabled]="!isFormValid"
+        >
+          Salvar
+        </button>
+      </div>
     </div>
   </p-card>
 </div>

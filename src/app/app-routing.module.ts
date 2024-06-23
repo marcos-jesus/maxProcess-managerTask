@@ -5,13 +5,13 @@ import { HomeComponent } from './pages/home/home.component'
 import { UpdateComponent } from './pages/update/update.component'
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'maxprocess', component: CadastroComponent},
-  {path: 'maxprocess/:id', component: UpdateComponent}
-];
+  { path: '', component: HomeComponent },
+  { path: 'maxprocess', component: CadastroComponent },
+  { path: 'maxprocess/:id', component: UpdateComponent },
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

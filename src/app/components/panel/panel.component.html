@@ -5,35 +5,32 @@
   <p-panel class="col-12 sm:col-6 md:col-6 lg:col-4" *ngFor="let task of tasks">
     <ng-template pTemplate="header">
       <div class="header-panel">
-        <span>{{ task.title}}</span>
+        <span>{{ task.title }}</span>
         <p-tag severity="danger" *ngIf="task.status.type == '1'">
-          {{ task.status.label}}
+          {{ task.status.label }}
         </p-tag>
         <p-tag *ngIf="task.status.type == '2'">
-          {{task.status.label}}
+          {{ task.status.label }}
         </p-tag>
         <p-tag severity="success" *ngIf="task.status.type == '3'">
-          {{task.status.label}}
+          {{ task.status.label }}
         </p-tag>
       </div>
     </ng-template>
 
     <ng-template pTemplate="body">
       <div class="body-panel-text">
-        {{task.description}}
+        {{ task.description }}
       </div>
-      
+
       <div class="body-panel-icons">
-        <i class="fa-solid fa-pencil"
-          (click)="onUpdate(task)"
-        ></i>
+        <i class="fa-solid fa-pencil" (click)="onUpdate(task)"></i>
         <i
           (click)="onDelete(task.id!)"
           class="fa-solid fa-trash"
-          style="color: #DC3545;"
+          style="color: #dc3545"
         ></i>
       </div>
     </ng-template>
   </p-panel>
- 
 </div>

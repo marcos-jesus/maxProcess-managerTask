@@ -11,53 +11,51 @@ import { TasksService } from 'src/app/services/tasks.service'
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
-  styleUrls: ['./update.component.scss']
+  styleUrls: ['./update.component.scss'],
 })
 export class UpdateComponent {
-
   loading$ = this._loaderService.loading$
 
   nodes: TreeNode<ICadastro[]>[] = [
-    { type: "1", label: "Pendente"},
-    { type: "2", label: "Em Progresso"},
-    { type: "3", label: "Concluída"},
+    { type: '1', label: 'Pendente' },
+    { type: '2', label: 'Em Progresso' },
+    { type: '3', label: 'Concluída' },
   ]
 
-  selectStatus: TreeNode<Status> | null = null;
+  selectStatus: TreeNode<Status> | null = null
 
   protected form = this.formBuilder.group({
     title: ['', Validators.required],
-    description: ['', Validators.required]
+    description: ['', Validators.required],
   })
-  
+
   tasks$ = new Observable<ITasks>()
-  
+
   constructor(
-    private _ServiceTask: TasksService, 
+    private _ServiceTask: TasksService,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder : FormBuilder,
+    private formBuilder: FormBuilder,
     private _loaderService: LoaderService,
-
   ) {
-
     this.getTask()
 
-    this.tasks$.pipe(
-      switchMap((task) => {
-        return of(task)
-      }),
-      take(1)
-    ).subscribe((task) => {
+    this.tasks$
+      .pipe(
+        switchMap((task) => {
+          return of(task)
+        }),
+        take(1),
+      )
+      .subscribe((task) => {
+        this.form.patchValue({
+          title: task.title,
+          description: task.description,
+        })
 
-      this.form.patchValue({
-        title: task.title,
-        description: task.description,
+        this.selectStatus = task.status as TreeNode<Status>
+        this._loaderService.hideLoading()
       })
-
-      this.selectStatus = task.status as TreeNode<Status>
-      this._loaderService.hideLoading()
-    })
   }
 
   getTask() {
@@ -73,13 +71,12 @@ export class UpdateComponent {
       id: id,
       title: this.form.value.title,
       description: this.form.value.description,
-      status: this.selectStatus
+      status: this.selectStatus,
     }
 
-    this._ServiceTask.updateTask(update as ITasks).subscribe((task) => {
+    this._ServiceTask.updateTask(update as ITasks).subscribe((_) => {
       this._loaderService.hideLoading()
-      this.router.navigate([""])
+      this.router.navigate([''])
     })
   }
-
 }
