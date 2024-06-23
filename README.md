@@ -35,4 +35,4 @@ http://maxprocessteste.s3-website.us-east-2.amazonaws.com/
 
 
 <img src="./src/assets/aws.png"/>
-<img src=".src/assets/step.png"/>
+<img src="./src/assets/step.png"/>
