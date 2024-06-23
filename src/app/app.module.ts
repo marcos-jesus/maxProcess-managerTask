@@ -29,7 +29,9 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { LoadingOverlayComponent } from './components/loading-overlay/loading-overlay.component'
 
 import { LoaderService } from './services/loader.service'
-import { LoaderInterceptor } from './services/loader.interceptor'
+import { LoaderInterceptor } from './services/loader.interceptor';
+import { DateBRPipe } from './pipes/date-br.pipe'
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { LoaderInterceptor } from './services/loader.interceptor'
     HomeComponent,
     UpdateComponent,
     LoadingOverlayComponent,
+    DateBRPipe,
   ],
   imports: [
     BrowserModule,

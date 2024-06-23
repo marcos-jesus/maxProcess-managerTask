@@ -27,6 +27,8 @@
   margin-top: 0.5rem;
 }
 
+
+
 .overlay {
   position: fixed;
   top: 0;
@@ -56,4 +58,10 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.MaxProcess__date {
+  font-size: 10px;
+  font-weight: bold;
+  color: gray;
 }

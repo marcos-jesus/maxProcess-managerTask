@@ -22,8 +22,12 @@
       <div class="body-panel-text">
         {{ task.description }}
       </div>
+      
 
       <div class="body-panel-icons">
+        <div class="MaxProcess__date">
+          Encerra em: {{task.dueDate | dateBR}}
+        </div>
         <i class="fa-solid fa-pencil" (click)="onUpdate(task)"></i>
         <i
           (click)="onDelete(task.id!)"

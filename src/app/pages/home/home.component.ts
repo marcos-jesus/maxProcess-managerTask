@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   applyFilter() {
+    
     if (this.eventStatusFather && this.eventStatusFather.length > 0) {
       this.filteredTasks = this.tasks.filter((task) =>
         this.eventStatusFather.includes(task.status.type ?? ''),

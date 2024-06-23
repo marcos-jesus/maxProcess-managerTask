@@ -43,10 +43,14 @@ export class CadastroComponent implements OnDestroy {
   handleSave() {
     this._loaderService.showLoading()
 
+    const dueDate = new Date()
+    dueDate.setDate(dueDate.getDate() + 3)
+
     const forms: ITasks = {
       title: this.form.value.title ?? null,
       description: this.form.value.description ?? null,
       status: this.selectedNodes,
+      dueDate: dueDate.toISOString(),
     }
 
     this.subscription.add(

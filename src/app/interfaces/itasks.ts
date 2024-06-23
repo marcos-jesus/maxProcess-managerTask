@@ -3,6 +3,7 @@ export interface ITasks {
   title: string | null
   description: string | null
   status: Status
+  dueDate: string
 }
 
 export interface Status {
