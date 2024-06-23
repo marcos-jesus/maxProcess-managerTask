@@ -18,7 +18,7 @@ export class CadastroComponent {
   selectedNodes!: Status;
   nodes: TreeNode<ICadastro[]>[] = [
     { type: "1", label: "Pendente"},
-    { type: "2", label: "Em andamento"},
+    { type: "2", label: "Em Progresso"},
     { type: "3", label: "Concluído"},
   ]
   

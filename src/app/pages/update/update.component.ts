@@ -19,8 +19,8 @@ export class UpdateComponent {
 
   nodes: TreeNode<ICadastro[]>[] = [
     { type: "1", label: "Pendente"},
-    { type: "2", label: "Em andamento"},
-    { type: "3", label: "Concluído"},
+    { type: "2", label: "Em Progresso"},
+    { type: "3", label: "Concluída"},
   ]
 
   selectStatus: TreeNode<Status> | null = null;
